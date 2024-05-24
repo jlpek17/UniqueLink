@@ -9,7 +9,21 @@ class Post extends Model
 {
     use HasFactory;
 
+    
+
     protected $switch = ['user'];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
+        'content',
+        'image',
+        'tags'
+    ];
 
     public function user()
     {
