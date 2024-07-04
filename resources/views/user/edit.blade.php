@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section('title')
-    Mon Compte
+    <title>Mon Compte</title>
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
         <div class="row">
 
-            <form class="col-4 mx-auto" action="{{ route('users.update', $user) }}" method="POST">
+            <form class="col-4 mx-auto" action="{{ route('users.update', $user) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -24,18 +24,20 @@
 
                 <div class="form-group">
                     <label for="image">Nouvelle image </label>
-                    <input required type="text" class="form-control" placeholder="modifier" name="image" value="{{ $user->image }}" id="image">
+                    <input required type="file" class="form-control" placeholder="modifier" name="image" value="{{ $user->image }}" id="image">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <button type="submit" class="btn btn-primary">Modifier</button>
 
-                <form action="{{ route('users.destroy', $user) }}" method="post">
+                {{-- <form action="{{ route('users.destroy', $user) }}" method="post">
                     @csrf
                     @method("delete")
                     <button type="submit" class="btn btn-danger">supprimer le compte</button>
-                </form>
+                </form> --}}
                 
             </form>
+
+            <img src="{{ asset("images/$user->image") }} ">
 
         
 

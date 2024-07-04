@@ -11,16 +11,20 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+
+    // un user a plusieurs post
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
 
+    // un utilisatuer a plusieur commentaire
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
+    // un user n'a qu'un role
     public function role()
     {
         return $this->belongsTo(Role::class);

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Post;
+
 
 class HomeController extends Controller
 {
@@ -23,7 +24,20 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // récupération des posts sans options
+        //$posts = Post::all();
+
+        // récupération des posts : le plus récent en 1er
+        //$posts = Post::latest()->get();
         
-        return view('home');
+        // idem + eager loadings : récup auteur + commentaires + auteur de chaque commentaire
+        $posts = Post::with('user', 'comments.user')->latest()->Paginate(5);
+        //dd($posts);
+        // $posts->load('user', 'comments.user');
+
+        return view('home', [
+            'posts' => $posts
+        ]);
     }
+
 }
