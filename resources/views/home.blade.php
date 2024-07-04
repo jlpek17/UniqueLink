@@ -18,8 +18,8 @@
 
     <!-- TO POST LINKER -->
     <div class="container">
-        <div class="row m-3justify-content-center">
-                <div class="card p-2">
+        <div class="row m-3 justify-content-center">
+                <div class="card p-2 poster">
 
                     <div class="card-body p-2">
                         {{-- <form action="{{ route(posts.store, $post)}}" method="POST"> --}}
@@ -40,7 +40,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                <button class="btn btn-secondary" type="button"
+                                <button class="btn btn-light" type="button"
                                     id="inputGroupFileAddon04"><b>X</b></button>
                             </div>
 
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button class="btn btn-success" type="submit">
+                                <button class="btn btn-dark" type="submit">
                                     <span class="material-symbols-rounded">publish</span>Lache ton Linker
                                 </button>
 
@@ -80,8 +80,8 @@
 
                         <div class="d-flex buttonLinker">
                             @can('update', $post)
-                            <a class="btn btn-danger modifyLinker" href="{{ route('posts.edit', $post) }}">
-                                <button class="btn btn-danger modifyLinkerOn">
+                            <a class="btn btn-dark modifyLinker" href="{{ route('posts.edit', $post) }}">
+                                <button class="btn btn-dark modifyLinkerOn">
                                     <span class="material-symbols-rounded">published_with_changes</span>Modifier le Linker
                                 </button>
                             </a>
@@ -90,8 +90,8 @@
                                 @csrf
                                 @method('delete')
                                 @can('delete', $post)
-                                <a class="btn btn-danger modifyLinker">
-                                    <button class="btn btn-danger modifyLinkerOn">
+                                <a class="btn btn-dark modifyLinker">
+                                    <button class="btn btn-dark modifyLinkerOn">
                                         <span class="material-symbols-rounded">delete</span>Supprimer le Linker
                                     </button>
                                 </a>
@@ -155,7 +155,7 @@
 
                             
                             <input type="hidden" name="post_id" value="{{ $post->id }}">
-                            <button type="submit" class="btn btn-primary">Commenter le linker</button>
+                            <button type="submit" class="btn btn-dark">Commenter le linker</button>
                             
 
                         </form>

@@ -44,7 +44,7 @@
 }
 
 .modifyLinkerOn {
-    padding: 0;
+    padding: 2;
 }
 
 .commentBox {
@@ -53,4 +53,11 @@
     margin-bottom: 8px;
 }
 
+.poster {
+    background-color: grey;
+}
+
+.btn-dark {
+    --bs-btn-bg: #C00000;  
+}
 
