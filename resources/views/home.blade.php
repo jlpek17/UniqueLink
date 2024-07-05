@@ -73,10 +73,12 @@
 
                 @foreach ($posts as $post)
                     <div class="card linker">
-                        <h2>Linker de {{ $post->user->pseudo }}</h2>
-                        <p id="linkerContent">""{{ $post->content }}""<b># Tags:</b> {{ $post->tags }} <b># Auteur:
-                            </b>{{ $post->user->pseudo }}</p>
+                        
+                        <h2 id="linkerContent">"{{ $post->content }}"</h2>
+                        
                         <a class="text-center"><img src="images/{{ $post->image }}" height="128px"></a>
+
+                        <p class="text-end"><b>#Tags:</b> {{ $post->tags }}<b>  #Auteur: </b>{{ $post->user->pseudo }}</p>
 
                         <div class="d-flex buttonLinker">
                             @can('update', $post)
@@ -101,7 +103,7 @@
 
                         <div class="row commentSection">
                             @foreach ($post->comments as $comment)
-                                <div class="card container commentBox" style="width: 320px;">
+                                <div class="card container commentBox" style="width: 448px;">
                                     <div class="card-body">
                                         <h5 class="card-title"><u>{{ $comment->user->pseudo }}</u> a commenté:</h5>
                                         <p class="card-text">{{ $comment->content }}</p>
@@ -145,12 +147,11 @@
                             <div class="form-floating commentBox">
                                 <textarea class="form-control" placeholder="Leave a comment here" name="content" id="content" style="height: 96px"></textarea>
                                 <label for="content">Ecrire un commentaire</label>
-
                             </div>
 
-                            <div class="form-floating commentBox">
+                            <div class="form-floating commentBox" style="width: 448px;">
                                 <textarea class="form-control" placeholder="Leave a tags here" name="tags" id="tags" style="height: 48px"></textarea>
-                                <label for="content">Associe tes #Tags</label>
+                                <label for="content">Associe tes #Tags à ton commentaire</label>
                             </div>
 
                             
